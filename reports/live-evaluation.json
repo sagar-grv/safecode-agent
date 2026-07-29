@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-07-29T07:37:26.100Z",
+  "target": "https://safecode-agent.vercel.app",
+  "cases": 12,
+  "metrics": {
+    "passAt1": 0.8333333333333334,
+    "passAt3": 1,
+    "artifactSuccess": 1,
+    "p95EndToEndMs": 12619
+  },
+  "results": [
+    {
+      "task": "Summarize this CSV dataset.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 12619,
+      "artifactCount": 1
+    },
+    {
+      "task": "Count rows and list the columns.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 6313,
+      "artifactCount": 1
+    },
+    {
+      "task": "Profile the numeric values in this dataset.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 6286,
+      "artifactCount": 1
+    },
+    {
+      "task": "Save a JSON summary of this CSV.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 6677,
+      "artifactCount": 1
+    },
+    {
+      "task": "Analyze monthly revenue by region.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 6240,
+      "artifactCount": 1
+    },
+    {
+      "task": "Create a revenue bar chart by region.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 7251,
+      "artifactCount": 1
+    },
+    {
+      "task": "Group monthly revenue by region and save a chart.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 6510,
+      "artifactCount": 1
+    },
+    {
+      "task": "Analyze monthly revenue by region and save a bar chart.",
+      "demoRepair": true,
+      "ok": true,
+      "status": 200,
+      "passedAt": 2,
+      "elapsedMs": 11252,
+      "artifactCount": 1
+    },
+    {
+      "task": "Create a regional revenue chart and demonstrate repair.",
+      "demoRepair": true,
+      "ok": true,
+      "status": 200,
+      "passedAt": 2,
+      "elapsedMs": 11140,
+      "artifactCount": 1
+    },
+    {
+      "task": "Profile a monthly operations export.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 9025,
+      "artifactCount": 1
+    },
+    {
+      "task": "Calculate basic statistics for every numeric column.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 6163,
+      "artifactCount": 1
+    },
+    {
+      "task": "Generate a machine-readable dataset overview.",
+      "demoRepair": false,
+      "ok": true,
+      "status": 200,
+      "passedAt": 1,
+      "elapsedMs": 5895,
+      "artifactCount": 1
+    }
+  ]
+}
