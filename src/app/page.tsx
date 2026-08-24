@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
@@ -20,7 +21,7 @@ export default function Home() {
             <p className={styles.heroStatement}>Kavach Sentinel turns a vulnerability hypothesis into a bounded patch—and then into evidence that the fix holds.</p>
             <div className={styles.heroMeta}><i /> <span>AI KAVACH / TERRIER CYBER QUEST 2026</span></div>
           </div>
-          <div className={styles.heroFigure} aria-label="Kavach verification signal"><div className={styles.heroOrb}><div className={styles.heroOrbInner}><ShieldCheck size={28} /><span className={styles.heroOrbText}>PROOF<br />LAB</span></div></div><span className={styles.heroScroll}>Scroll to inspect</span></div>
+          <div className={styles.heroFigure} aria-label="Kavach Sentinel three-dimensional verification core"><Image className={styles.heroCoreImage} src="/kavach-proof-core-refined.png" alt="Three-dimensional Kavach Sentinel proof core" fill priority sizes="(max-width: 820px) 275px, 350px" /><div className={styles.heroOrb}><div className={styles.heroOrbInner}><ShieldCheck size={28} /><span className={styles.heroOrbText}>PROOF<br />LAB</span></div></div><span className={styles.hero3dTag}>3D / PROOF CORE</span><span className={styles.heroScroll}>Scroll to inspect</span></div>
         </section>
 
         <section className={styles.chapterGrid} aria-label="Kavach Proof Lab pages">

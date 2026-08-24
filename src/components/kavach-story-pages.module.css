@@ -12,3 +12,19 @@
 @media (prefers-reduced-motion: reduce) { .page, .page * { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
 
 .patchCallout { display: flex; gap: 10px; align-items: flex-start; margin-top: 21px; padding: 14px 0; border-top: 1px solid #c9d1ce; border-bottom: 1px solid #c9d1ce; color: #43565a; font-size: 11px; line-height: 1.5; }.patchCallout svg { flex: 0 0 auto; color: #2b8e64; }.patchCallout .caseLabel { display: inline; }
+
+.heroFigure { perspective: 1100px; transform-style: preserve-3d; animation: proof-orbit 7s ease-in-out infinite; }
+.heroFigure::before { transform: rotateX(64deg) rotateZ(18deg) translateZ(26px); }
+.heroFigure::after { transform: rotateY(68deg) rotateZ(-22deg) translateZ(48px); }
+.heroOrb { transform-style: preserve-3d; transform: translateZ(68px); animation: core-breathe 3.6s ease-in-out infinite; }
+.heroOrbInner { transform: translateZ(24px) rotateX(7deg); }
+.heroOrbText { transform: translateZ(32px); }
+@keyframes proof-orbit { 0%, 100% { transform: rotateX(4deg) rotateY(-8deg) translateY(0); } 50% { transform: rotateX(-3deg) rotateY(8deg) translateY(-10px); } }
+@keyframes core-breathe { 0%, 100% { box-shadow: 0 0 40px #b7f36a18; } 50% { box-shadow: 0 0 78px #b7f36a52; } }
+@media (prefers-reduced-motion: reduce) { .heroFigure, .heroOrb { animation: none; transform: none; } .heroFigure::before, .heroFigure::after, .heroOrbInner, .heroOrbText { transform: none; } }
+
+.heroCoreImage { position: absolute !important; inset: -17% !important; width: 134% !important; height: 134% !important; object-fit: cover; opacity: .9; filter: saturate(.8) contrast(1.1); transform: translateZ(28px) scale(1.08); mix-blend-mode: screen; }
+.heroFigure .heroOrb { position: relative; z-index: 3; background: #0b1013cc; backdrop-filter: blur(4px); }
+.hero3dTag { position: absolute; z-index: 4; left: 18px; bottom: 21px; color: #b7f36a; font-family: var(--font-geist-mono), monospace; font-size: 8px; letter-spacing: .14em; transform: translateZ(70px); }
+.heroFigure .heroScroll { z-index: 4; }
+@media (prefers-reduced-motion: reduce) { .heroCoreImage { transform: none; } }

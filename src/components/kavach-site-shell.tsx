@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, CircleDot, ShieldCheck } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { KavachBackButton } from "@/components/kavach-back-button";
 import styles from "@/components/kavach-site-shell.module.css";
 
 export function KavachSiteShell({ chapter, children }: { chapter: string; children: ReactNode }) {
@@ -20,7 +21,7 @@ export function KavachSiteShell({ chapter, children }: { chapter: string; childr
         </nav>
         <span className={styles.synthetic}><CircleDot size={10} fill="currentColor" /> SYNTHETIC DEMO</span>
       </header>
-      <div className={styles.chapterBar}><span>{chapter}</span><span>01—05 / KAVACH PROOF LAB</span></div>
+      <div className={styles.chapterBar}><KavachBackButton /><span>{chapter}</span><span>01—05 / KAVACH PROOF LAB</span></div>
       {children}
       <footer className={styles.footer}><span>KAVACH SENTINEL / TERRIER CYBER QUEST 2026</span><span>Sandbox-only · Synthetic data · Auditable evidence <ArrowUpRight size={12} /></span></footer>
     </main>

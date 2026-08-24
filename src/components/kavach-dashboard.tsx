@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -27,6 +28,7 @@ import {
   type KavachFinding,
   type KavachStage,
 } from "@/lib/kavach-demo";
+import { KavachBackButton } from "@/components/kavach-back-button";
 import styles from "@/components/kavach-dashboard.module.css";
 
 const stages: Array<{ id: KavachStage; label: string; detail: string; icon: typeof ScanSearch }> = [
@@ -72,7 +74,7 @@ export function KavachDashboard() {
   return (
     <main className={styles.page}>
       <header className={styles.topbar}>
-        <a href="#top" className={styles.brand}><span className={styles.brandMark}><ShieldCheck size={17} /></span><span><strong>KAVACH SENTINEL</strong><small>AI KAVACH / TRACK 02</small></span></a>
+        <div className={styles.topBack}><KavachBackButton /><Link href="/" className={styles.brand}><span className={styles.brandMark}><ShieldCheck size={17} /></span><span><strong>KAVACH SENTINEL</strong><small>AI KAVACH / TRACK 02</small></span></Link></div>
         <nav className={styles.topNav} aria-label="Page sections"><a href="#run">Run narrative</a><a href="#proof">Proof surface</a><a href="#safety">Safety contract</a></nav>
         <div className={styles.topbarRight}><span className={styles.demoPill}>SYNTHETIC DEMO</span><span className={styles.connectedStatus}><span className={styles.liveDot} /> Sandbox connected</span></div>
       </header>
