@@ -5,3 +5,8 @@ The production route https://kavach-sentinel.vercel.app/kavach loaded successful
 The Run control loop button was clicked successfully. The production UI changed to `Validating control loop`, disabled the button during execution, and marked the active stage as `Running now`, confirming the client-side motion and server route are working in the deployed environment.
 
 The live system is not currently a real-data security scanner. The Vercel route runs a deterministic synthetic demonstration and returns seeded findings and illustrative metrics. It does not yet ingest arbitrary real repositories or organiser-provided OpenAPI targets, run a real fuzzer/static-analysis engine against them, persist evidence, or prove performance on a hidden holdout. This is appropriate for a safe demo but is not sufficient to claim complete competition readiness.
+
+
+## Post-fix production verification
+
+After the latest main-branch deployment, the live route shows a `SYNTHETIC DEMO` badge, a `TARGET LOCKED · SYNTHETIC` label, and a clear notice that no real systems or personal data are queried. The Run control loop interaction again entered `Validating control loop` and marked the active stage as `Running now` without an error.
