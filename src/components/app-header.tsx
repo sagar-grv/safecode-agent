@@ -40,6 +40,9 @@ export function AppHeader() {
         <Link className={styles.navItem} href="/evaluation">
           Evaluation
         </Link>
+        <Link className={styles.navItem} href="/kavach">
+          Kavach Demo
+        </Link>
       </nav>
 
       <a
@@ -60,6 +63,7 @@ export function AppHeader() {
         <div className={styles.mobileMenuPanel}>
           <Link href="/">Workspace</Link>
           <Link href="/evaluation">Evaluation</Link>
+          <Link href="/kavach">Kavach Demo</Link>
           <a
             href="https://github.com/sagar-grv/safecode-agent"
             target="_blank"
