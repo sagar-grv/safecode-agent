@@ -111,6 +111,7 @@ export function KavachDashboard() {
         </div>
         <div className={styles.topbarRight}>
           <span className={styles.controlPill}><CircleDot size={11} fill="currentColor" /> CONTROL ROOM</span>
+          <span className={styles.demoPill}>SYNTHETIC DEMO</span>
           <span className={styles.connectedStatus}><span className={styles.liveDot} /> Sandbox connected</span>
           <span className={styles.versionTag}>v0.3.0</span>
         </div>
@@ -143,7 +144,7 @@ export function KavachDashboard() {
       </section>
 
       <section className={styles.targetBar}>
-        <div className={styles.targetIdentity}><span className={styles.targetIcon}><LockKeyhole size={15} /></span><div><span className={styles.targetLabel}>TARGET LOCKED</span><strong>{result.target}</strong></div></div>
+        <div className={styles.targetIdentity}><span className={styles.targetIcon}><LockKeyhole size={15} /></span><div><span className={styles.targetLabel}>TARGET LOCKED · {result.mode === "synthetic-demo" ? "SYNTHETIC" : "ORGANISER ADAPTER"}</span><strong>{result.target}</strong></div></div>
         <div className={styles.targetMeta}><span><GitBranch size={14} /> {result.targetHash}</span><span><TerminalSquare size={14} /> Python REST API</span><span><LockKeyhole size={14} /> Egress denied</span></div>
       </section>
 
@@ -158,6 +159,8 @@ export function KavachDashboard() {
           </div>;
         })}
       </section>
+
+      <div className={styles.dataNotice}><span><CircleDot size={12} /> {result.dataNotice}</span><span>Real-target adapter: pending organiser scope + schema</span></div>
 
       <section className={styles.signalStrip} aria-label="Run summary">
         <div><span className={styles.signalLabel}>THREATS NEUTRALIZED</span><strong>03</strong><small>validated findings</small></div>

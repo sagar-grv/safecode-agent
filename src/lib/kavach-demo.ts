@@ -26,6 +26,8 @@ export interface KavachTraceStep {
 }
 
 export interface KavachDemoResult {
+  mode: "synthetic-demo" | "organiser-adapter-pending";
+  dataNotice: string;
   runId: string;
   target: string;
   targetHash: string;
@@ -103,6 +105,8 @@ const findings: KavachFinding[] = [
 export function runKavachDemo(): KavachDemoResult {
   const runId = `KS-${new Date().toISOString().replace(/[-:TZ.]/g, "").slice(0, 14)}`;
   return {
+    mode: "synthetic-demo",
+    dataNotice: "Synthetic benchmark only · no real systems or personal data are queried.",
     runId,
     target: "Synthetic Armed Forces API stack · local sandbox",
     targetHash: "sha256:3d6f…8e91",
