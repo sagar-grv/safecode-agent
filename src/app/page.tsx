@@ -23,7 +23,7 @@ export default function Home() {
             <div className={styles.actionRow}><Link className={styles.accentButton} href="/kavach"><Play size={14} aria-hidden="true" /> Start the demo <ArrowRight size={14} aria-hidden="true" /></Link><Link className={styles.outlineButton} href="/evidence">See a case first <ArrowRight size={14} aria-hidden="true" /></Link></div>
             <div className={styles.heroMeta}><i /> Synthetic only · No external target · No uploaded code</div>
           </div>
-          <div className={styles.heroFigure} aria-label="Illustration of the verification core"><Image className={styles.heroCoreImage} src="/kavach-proof-core-refined.png" alt="Abstract verification core for Kavach Sentinel" fill priority sizes="(max-width: 760px) 280px, 420px" /><div className={styles.heroFigureLabel}><ShieldCheck size={16} aria-hidden="true" /><span>Proof core<br /><small>before → after</small></span></div></div>
+          <div className={styles.heroFigure} aria-label="Illustration of the verification core"><Image className={styles.heroCoreImage} src="/kavach-proof-core-orange.png" alt="Abstract verification core for Kavach Sentinel" fill priority sizes="(max-width: 760px) 280px, 420px" /><div className={styles.heroFigureLabel}><ShieldCheck size={16} aria-hidden="true" /><span>Proof core<br /><small>before → after</small></span></div></div>
         </section>
 
         <section className={styles.explainStrip} aria-label="How the demo works"><div><span>1</span><strong>Choose</strong><small>One seeded API case</small></div><div><span>2</span><strong>Run</strong><small>Baseline, policy, regression</small></div><div><span>3</span><strong>Inspect</strong><small>Evidence returned by the harness</small></div></section>
