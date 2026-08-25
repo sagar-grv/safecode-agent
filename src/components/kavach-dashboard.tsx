@@ -85,7 +85,7 @@ export function KavachDashboard() {
           <div className={styles.eyebrow}><span className={styles.eyebrowDot} /> DEFENSIVE AUTONOMY / EVIDENCE-FIRST</div>
           <h1>Find the flaw.<br /><em>Prove the fix.</em></h1>
           <p className={styles.heroSub}>Kavach Sentinel is a bounded cyber-reasoning system for simulated defence infrastructure.</p>
-          <div className={styles.heroActions}><button className={styles.primaryButton} type="button" onClick={runValidation} disabled={running}>{running ? <RefreshCw className={styles.spin} size={16} /> : <Play size={16} />}{running ? "Running control loop" : "Run control loop"}</button><span className={styles.runStamp}><span className={styles.liveDot} /> {result.runId}</span></div>
+          <div className={styles.heroActions}><button className={styles.primaryButton} type="button" onClick={runValidation} disabled={running}>{running ? <RefreshCw className={styles.spin} size={16} /> : <Play size={16} />}{running ? "Running control loop" : "Run control loop"}</button><span className={styles.runStamp}><span className={styles.liveDot} /> {result.runId}</span></div><div className={styles.runStatus} aria-live="polite">{running ? `Active stage: ${stages.find((stage) => stage.id === activeStage)?.label ?? "Validating"}` : "Ready for a new synthetic validation run"}</div>
         </div>
         <div className={styles.heroSignal} aria-label="Safe autonomy signal"><div className={styles.signalNumber}>S</div><div className={`${styles.signalRing} ${styles.signalRingOne}`} /><div className={`${styles.signalRing} ${styles.signalRingTwo}`} /><span>SAFE<br />AUTONOMY</span><div className={styles.signalCaption}>POLICY-GATED<br />LOOP</div></div>
       </section>
