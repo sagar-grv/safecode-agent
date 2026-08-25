@@ -28,3 +28,20 @@
 .hero3dTag { position: absolute; z-index: 4; left: 18px; bottom: 21px; color: #b7f36a; font-family: var(--font-geist-mono), monospace; font-size: 8px; letter-spacing: .14em; transform: translateZ(70px); }
 .heroFigure .heroScroll { z-index: 4; }
 @media (prefers-reduced-motion: reduce) { .heroCoreImage { transform: none; } }
+
+/* Skill-informed Blackbox theme: one dark substrate, one signal accent, no section-by-section theme switching. */
+.page { color: #eef3ed; }
+.landingHero, .section, .manifesto, .chapterGrid { border-color: #293230; }
+.heroTitle, .manifestoCopy, .sectionTitle, .chapterTitle, .casePanel h3, .submissionCard h2, .submissionCard h3, .casePanelMeta, .stat strong, .caseEvidenceCard p, .quote { color: #eef3ed; }
+.heroStatement, .sectionLead, .chapterCopy, .caseSummary, .caseEvidenceCard span, .stat span, .stat small, .submissionCard p, .submissionItem, .heroMeta, .heroScroll { color: #98a59f; }
+.heroTitleAccent, .manifestoCopy em, .sectionTitle em, .quote em, .heroLabel, .sectionTag, .caseLabel, .metaLabel, .chapterNumber, .chapterLink, .heroMeta i { color: #b7f36a; }
+.heroFigure, .architectureCanvas, .diff-panel { background: #0a0d0f; }
+.heroFigure::before, .heroFigure::after { border-color: #42534d; }
+.chapterCard:hover { background: #12191b; }
+.casePanel, .submissionCard { border-color: #33413d; background: #111719; }
+.caseEvidenceCard { border-color: #63403c; background: #281a1a; }.caseEvidenceAfter { border-color: #3e6541; background: #152218; }
+.stats, .stat, .submissionItems, .submissionItem { border-color: #33413d; }
+.architectureNode { border-color: #42534d; background: #111719; }.architectureNode:last-child { background: #b7f36a; color: #0a0d0f; }.architectureNode p { color: #98a59f; }.architectureNode:last-child p { color: #25452e; }
+.patchCallout { border-color: #33413d; color: #b7c7c3; }
+.accentButton { color: #0a0d0f; background: #b7f36a; }.outlineButton { border-color: #64746d; color: #eef3ed; }
+@media (prefers-reduced-motion: reduce) { .heroFigure { animation: none; } }

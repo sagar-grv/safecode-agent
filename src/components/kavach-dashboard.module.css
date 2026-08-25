@@ -51,3 +51,19 @@
 @keyframes hero-float { 0%, 100% { transform: rotateX(2deg) rotateY(-3deg) translateY(0); } 50% { transform: rotateX(-2deg) rotateY(4deg) translateY(-8px); } }
 @media (max-width: 720px) { .topBack .button { display: none; } }
 @media (prefers-reduced-motion: reduce) { .heroSignal { animation: none; transform: none; } .heroSignal::before, .signalRingOne, .signalRingTwo, .signalNumber, .heroSignal > span, .signalCaption { transform: none !important; } }
+
+.runStatus { margin-top: 10px; color: #98a59f; font-family: var(--font-geist-mono), monospace; font-size: 9px; letter-spacing: .06em; }.primaryButton:active { transform: scale(.98); }.topNav a:focus-visible, .brand:focus-visible, .findingRow:focus-visible, .detailTabs button:focus-visible { outline: 2px solid #c8e84c; outline-offset: 3px; }
+
+/* Final skill-informed theme lock: the control room remains one dark tactical telemetry environment. */
+.page { color: #eef3ed; background: #0a0d0f; }
+.page::before { opacity: .14; background-image: linear-gradient(90deg, #eef3ed 1px, transparent 1px), linear-gradient(#eef3ed 1px, transparent 1px); }
+.topbar { border-color: #293230; background: #0a0d0f; }.topNav a, .connectedStatus, .runStamp { color: #98a59f; }.topNav a:hover { color: #eef3ed; }
+.hero, .runSection, .proofSection, .metricsSection, .safetySection { border-color: #293230; background: #0a0d0f; }.heroSub, .sectionIntro p, .safetySection p, .metricWall em, .traceInline { color: #98a59f; }.sectionIntro h2, .safetySection h2 { color: #eef3ed; }.sectionIntro h2 em { color: #b7f36a; }
+.targetBar { border-color: #293230; background: #111719; }.targetMeta { color: #98a59f; }.targetLabel { color: #b7f36a; }.targetIdentity strong { color: #eef3ed; }.targetIcon { color: #b7f36a; background: #b7f36a1a; border-color: #4c6d4c; }
+.dataNotice { border-color: #5f5c2f; color: #c8d09e; background: #262619; }.pipeline, .metricWall { border-color: #42534d; }.pipelineStep { border-color: #33413d; background: #111719; }.pipelineStep strong { color: #eef3ed; }.pipelineStep > span { color: #98a59f; }.pipelineStepActive { background: #17251d; border-color: #b7f36a; }.pipelineStepActive strong { color: #b7f36a; }
+.findingList, .findingRow, .casePanel, .detailTabs, .metricWall > div { border-color: #33413d; background: #111719; }.findingRow { color: #eef3ed; }.findingRowCopy small, .findingRowConfidence, .caseBody p, .caseFacts span { color: #98a59f; }.findingRowSelected { background: #17251d; box-shadow: inset 3px 0 #b7f36a; }.caseHeader h3, .caseHeader .detailClass, .caseFacts b { color: #eef3ed; }.detailTabs button { color: #98a59f; }.detailTabs button:hover, .tabActive { color: #b7f36a; border-color: #b7f36a; }.patchCallout, .caseFacts { border-color: #33413d; background: #151c1d; }.patchCallout strong, .greenText { color: #b7f36a; }.evidenceBox { border-color: #63403c; background: #281a1a; }.evidenceAfter { border-color: #3e6541; background: #152218; }.evidenceBox code { color: #eef3ed; }.safetyProof { border-color: #3e6541; background: #152218; color: #eef3ed; }.safetyProof p { color: #98a59f; }
+.metricWall > div span { color: #98a59f; }.metricWall > div strong { color: #eef3ed; }.traceInline { border-color: #293230; }.safetyGrid > div { border-color: #33413d; background: #111719; color: #cbd7d0; }.safetyGrid svg { color: #b7f36a; }
+.footer { border-color: #293230; color: #98a59f; }
+.heroCopy { animation: hero-copy-enter 520ms ease-out both; }.targetBar { animation: hero-copy-enter 520ms 80ms ease-out both; }
+@keyframes hero-copy-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .heroCopy, .targetBar { animation: none; } }

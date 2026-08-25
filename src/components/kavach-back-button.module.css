@@ -1,1 +1,3 @@
 .button { display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid #c9d1ce; border-radius: 999px; color: #43565a; background: #fbfbf6aa; font-size: 9px; font-weight: 700; cursor: pointer; transition: transform .2s ease, border-color .2s ease, color .2s ease; }.button:hover { transform: translateX(-2px); border-color: #2b8e64; color: #2b8e64; }.button:focus-visible { outline: 2px solid #b7f36a; outline-offset: 2px; } @media (prefers-reduced-motion: reduce) { .button { transition: none; } }
+
+.button { border-color: #42534d; color: #cbd7d0; background: #111719; }.button:hover { border-color: #b7f36a; color: #b7f36a; }.button:active { transform: translateX(-1px) scale(.98); }.button:focus-visible { outline-color: #b7f36a; }

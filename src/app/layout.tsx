@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "SafeCode Agent",
-    template: "%s · SafeCode Agent",
+    default: "Kavach Sentinel · Proof Lab",
+    template: "%s · Kavach Sentinel",
   },
   description:
-    "Generate, isolate, observe, and repair Python inside an ephemeral Vercel Sandbox.",
+    "Kavach Sentinel is a bounded cyber-reasoning proof lab for safe vulnerability remediation.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "https://safecode-agent.vercel.app",
   ),
   openGraph: {
-    title: "SafeCode Agent",
+    title: "Kavach Sentinel · Proof Lab",
     description:
-      "A sandboxed, self-correcting Python execution system with evidence-rich traces.",
+      "A bounded cyber-reasoning proof lab with synthetic evidence and policy-gated remediation.",
     type: "website",
   },
 };
