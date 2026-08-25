@@ -2,15 +2,54 @@ import Link from "next/link";
 import { ArrowRight, Check, ChevronRight, ShieldCheck, X } from "lucide-react";
 
 import { KavachSiteShell } from "@/components/kavach-site-shell";
+import { isKavachScenarioId, kavachScenarios } from "@/lib/kavach-runner";
 import styles from "@/components/kavach-story-pages.module.css";
 
-const cases = [
-  { id: "BFLA-001", name: "Administrative delete exposed to operator role", className: "Broken Function Level Authorization", route: "DELETE /api/users/{user_id}", before: "operator_a → DELETE /api/users/operator_b → 204 No Content", after: "operator_a → DELETE /api/users/operator_b → 403 Forbidden", patch: "Require role == admin before invoking the delete handler.", proof: "Operator blocked; admin access preserved; regression suite passed.", severity: "CRITICAL" },
-  { id: "BOLA-001", name: "Cross-owner task disclosure", className: "Broken Object Level Authorization", route: "GET /api/tasks/{task_id}", before: "operator_b → GET /api/tasks/task_a → 200 + owner=operator_a", after: "operator_b → GET /api/tasks/task_a → 403 Forbidden", patch: "Enforce object ownership or administrator role before returning the object.", proof: "Non-owner blocked; owner and admin access preserved; tests passed.", severity: "HIGH" },
-  { id: "MISCONFIG-001", name: "Debug endpoint enabled in production profile", className: "Security Misconfiguration", route: "GET /api/debug", before: "operator_a → GET /api/debug → 200 { debug: true }", after: "operator_a → GET /api/debug → 404 Not Found", patch: "Disable the debug route in the production configuration.", proof: "Debug exposure removed; normal API access preserved; tests passed.", severity: "MEDIUM" },
-];
+type EvidencePageProps = {
+  searchParams: Promise<{ case?: string }>;
+};
 
-export default function EvidencePage() {
-  const item = cases[0];
-  return <KavachSiteShell chapter="02 / THE CASE FILE"><div className={styles.page}><section className={styles.section}><div className={styles.sectionHead}><div><span className={styles.sectionTag}>CASE FILE / {item.id}</span><div className={styles.heroMeta}><i /> VERIFIED IN SYNTHETIC LAB</div></div><div><h1 className={styles.sectionTitle}>The exploit is only<br /><em>the beginning.</em></h1><p className={styles.sectionLead}>A finding becomes valuable when the system can explain the root cause, apply a minimal change, and prove that legitimate behaviour still works.</p></div></div><div className={styles.caseLayout}><aside className={styles.caseNav}>{cases.map((entry, index) => <Link href={index === 0 ? "/evidence" : "/evidence"} className={`${styles.caseNavItem} ${index === 0 ? styles.caseNavSelected : ""}`} key={entry.id}><span><b>{String(index + 1).padStart(2, "0")}</b> {entry.id}</span><ChevronRight size={14} /></Link>)}</aside><article className={styles.casePanel}><div className={styles.casePanelTop}><div><span className={styles.caseLabel}>{item.className}</span><h2>{item.name}</h2></div><span className={styles.casePanelMeta}>{item.severity} / 0.99 CONFIDENCE</span></div><p className={styles.caseSummary}>A regular operator received a successful response from an administrative delete function. The system connected runtime evidence to the route policy and returned a constrained patch strategy.</p><div className={styles.caseEvidence}><div className={styles.caseEvidenceCard}><span className={styles.caseLabel}><X size={13} /> BASELINE EXPLOIT</span><p>{item.before}</p></div><div className={`${styles.caseEvidenceCard} ${styles.caseEvidenceAfter}`}><span className={styles.caseLabel}><Check size={13} /> POST-PATCH PROOF</span><p>{item.after}</p></div></div><div className={styles.patchCallout}><ShieldCheck size={18} /><span><span className={styles.caseLabel}>APPROVED PATCH STRATEGY</span><br />{item.patch}</span></div><div className={styles.stats}><div className={styles.stat}><span>DECISION</span><strong>ACCEPTED</strong><small>policy gate passed</small></div><div className={styles.stat}><span>CONFIDENCE</span><strong>99%</strong><small>source + runtime evidence</small></div><div className={styles.stat}><span>REGRESSION</span><strong>PASS</strong><small>legitimate access preserved</small></div><div className={styles.stat}><span>PROOF</span><strong>LOCKED</strong><small>{item.proof}</small></div></div></article></div></section><section className={styles.manifesto}><div className={styles.manifestoNumber}>THE RULE</div><p className={styles.manifestoCopy}>A patch is not a result until the <em>exploit is blocked</em> and the authorised path survives.</p></section><div className={styles.actionRow}><Link className={styles.accentButton} href="/kavach">Run the control loop <ArrowRight size={14} /></Link><Link className={styles.outlineButton} href="/architecture">Inspect the boundary <ArrowRight size={14} /></Link></div></div></KavachSiteShell>;
+export default async function EvidencePage({ searchParams }: EvidencePageProps) {
+  const params = await searchParams;
+  const item = isKavachScenarioId(params.case) ? kavachScenarios.find((entry) => entry.id === params.case) ?? kavachScenarios[0] : kavachScenarios[0];
+
+  return (
+    <KavachSiteShell chapter="02 / THE CASE FILE">
+      <div className={styles.page}>
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <div>
+              <span className={styles.sectionTag}>CASE FILE / {item.id}</span>
+              <div className={styles.heroMeta}><i /> SEE THIS CASE RUN IN THE CONTROL ROOM</div>
+            </div>
+            <div>
+              <h1 className={styles.sectionTitle}>Start with a case<br /><em>you can verify.</em></h1>
+              <p className={styles.sectionLead}>Each seeded case has one concrete route, one bounded policy rule, and two regression checks. This page explains the case; the control room executes it.</p>
+            </div>
+          </div>
+          <div className={styles.caseLayout}>
+            <aside className={styles.caseNav} aria-label="Seeded case files">
+              {kavachScenarios.map((entry, index) => (
+                <Link href={`/evidence?case=${encodeURIComponent(entry.id)}`} className={`${styles.caseNavItem} ${entry.id === item.id ? styles.caseNavSelected : ""}`} aria-current={entry.id === item.id ? "page" : undefined} key={entry.id}>
+                  <span><b>{String(index + 1).padStart(2, "0")}</b> {entry.id}</span><ChevronRight size={14} aria-hidden="true" />
+                </Link>
+              ))}
+            </aside>
+            <article className={styles.casePanel}>
+              <div className={styles.casePanelTop}><div><span className={styles.caseLabel}>{item.category}</span><h2>{item.title}</h2></div><span className={styles.casePanelMeta}>{item.severity} / SEE LIVE RESULT</span></div>
+              <p className={styles.caseSummary}>{item.vulnerability}</p>
+              <div className={styles.caseEvidence}>
+                <div className={styles.caseEvidenceCard}><span className={styles.caseLabel}><X size={13} aria-hidden="true" /> BASELINE / VULNERABLE</span><p>{item.route}<br />{item.baselineOutcome ?? item.protectedOutcome.replace("403 Forbidden", "200 OK")}</p></div>
+                <div className={`${styles.caseEvidenceCard} ${styles.caseEvidenceAfter}`}><span className={styles.caseLabel}><Check size={13} aria-hidden="true" /> AFTER RULE / EXPECTED</span><p>{item.route}<br />{item.protectedOutcome}</p></div>
+              </div>
+              <div className={styles.patchCallout}><ShieldCheck size={18} aria-hidden="true" /><span><span className={styles.caseLabel}>BOUNDED POLICY RULE</span><br />{item.patch}</span></div>
+              <div className={styles.stats}><div className={styles.stat}><span>CASE ID</span><strong>{item.id}</strong><small>allowlisted scenario</small></div><div className={styles.stat}><span>SEVERITY</span><strong>{item.severity.toUpperCase()}</strong><small>seed classification</small></div><div className={styles.stat}><span>PROOF</span><strong>2 CHECKS</strong><small>blocked + allowed path</small></div><div className={styles.stat}><span>STATUS</span><strong>READY</strong><small>execute in control room</small></div></div>
+            </article>
+          </div>
+        </section>
+        <section className={styles.manifesto}><div className={styles.manifestoNumber}>THE TEST</div><p className={styles.manifestoCopy}>A security fix is useful only when the <em>bad path is blocked</em> and the allowed path still works.</p></section>
+        <div className={styles.actionRow}><Link className={styles.accentButton} href={`/kavach?case=${encodeURIComponent(item.id)}`}>Run this case <ArrowRight size={14} aria-hidden="true" /></Link><Link className={styles.outlineButton} href="/architecture">How the boundary works <ArrowRight size={14} aria-hidden="true" /></Link></div>
+      </div>
+    </KavachSiteShell>
+  );
 }
