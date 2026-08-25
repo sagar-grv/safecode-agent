@@ -17,3 +17,15 @@ After the latest main-branch deployment, the live route shows a `SYNTHETIC DEMO`
 The final production page at https://kavach-sentinel.vercel.app/kavach now uses an editorial one-story layout: oversized hero typography, a restrained black-and-lime hero signal, target boundary, a four-stage narrative rail, a proof surface with progressive detail tabs, a measured metrics wall, and a separate safety-contract section. The page is substantially less dense than the earlier control-room version and the synthetic-only disclosure remains visible near the target boundary.
 
 The Run control loop was triggered in production. The interface changed to `Running control loop`, marked the current stage `RUNNING`, and preserved the evidence sections without navigation or error. The final Vercel deployment corresponding to the latest repository push is `READY`.
+
+
+## Back navigation and 3D proof-core review
+
+The production `/kavach` route visibly exposes a Back button and returns to the Proof Lab story. The production root visibly exposes the same Back control and renders the refined 3D proof-core asset with the `3D / PROOF CORE` label. The control-room route keeps the synthetic-demo disclosure and the active Run control loop; the root page keeps the multi-page chapter navigation.
+
+The Vercel deployment created from commit `4d138bf22d5fe30528ea7ebfdf6f74424dcd1d9f` is `READY` for production.
+
+
+## Skill-informed final deployment review
+
+The production alias for commit `c93855c` is `READY`. The root page renders the dark tactical telemetry theme, the refined 3D proof core, shared navigation, and the visible synthetic-demo boundary. The `/kavach` route renders the same dark theme throughout the hero, target bar, run narrative, proof surface, metrics wall, and safety contract. It exposes the Back control and a live `Ready for a new synthetic validation run` status line. The latest production URLs were loaded successfully in the browser.
